@@ -20,8 +20,8 @@ for img in v[0]:
 
 
 # parameters for learning stuff
-learning_rate = 0.05
-epochs = 20
+learning_rate = 0.1
+epochs = 50
 batch_size = 100
 display_step = 1
 
@@ -72,6 +72,7 @@ with tf.Session() as sess:
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     print("Accuracy:", accuracy.eval({data_x: mnist.test.images[:3000], data_y: mnist.test.labels[:3000]}))
 
+    # Test model (John style)
     out = sess.run(softmax_regression, feed_dict={data_x: v[0]})
-    # print([np.argmax(x) for x in out])
+    print([np.argmax(x) for x in out])
     print(out)
